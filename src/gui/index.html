@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>devOS</title>
+  <link rel="stylesheet" href="/styles/desktop.css">
+  <link rel="stylesheet" href="/styles/boot.css">
+  <link rel="stylesheet" href="/styles/taskbar.css">
+  <link rel="stylesheet" href="/styles/window.css">
+</head>
+<body>
+  <!-- Boot Screen -->
+  <div id="boot-screen" class="boot-screen">
+    <div class="boot-logo">dev<span>OS</span></div>
+    <div class="boot-version">v0.1.0</div>
+    <div class="boot-progress-container">
+      <div id="boot-progress" class="boot-progress-bar"></div>
+    </div>
+    <div id="boot-status" class="boot-status">Initializing...</div>
+  </div>
+
+  <!-- Desktop -->
+  <div id="desktop" style="display: none;">
+    <div class="desktop-icons" id="desktop-icons"></div>
+  </div>
+
+  <!-- Window Layer -->
+  <div id="window-layer" style="display: none;"></div>
+
+  <!-- Start Menu -->
+  <div id="start-menu" class="start-menu">
+    <div class="start-menu-header">
+      <h2>devOS</h2>
+      <p>v0.1.0</p>
+    </div>
+    <div class="start-menu-apps" id="start-menu-apps"></div>
+    <div class="start-menu-footer">
+      <button id="btn-restart">Restart</button>
+      <button id="btn-shutdown">Shutdown</button>
+    </div>
+  </div>
+
+  <!-- Context Menu -->
+  <div id="context-menu" class="context-menu"></div>
+
+  <!-- Taskbar -->
+  <div id="taskbar" style="display: none;">
+    <div class="taskbar-start">
+      <button class="start-button" id="start-btn" title="Start Menu">⊞</button>
+    </div>
+    <div class="taskbar-apps" id="taskbar-apps"></div>
+    <div class="taskbar-tray" id="taskbar-tray"></div>
+    <div class="taskbar-clock" id="taskbar-clock">
+      <div class="clock-time"></div>
+      <div class="clock-date"></div>
+    </div>
+  </div>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>
