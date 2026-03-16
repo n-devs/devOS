@@ -1,15 +1,33 @@
-# devos
+# devOS
 
-To install dependencies:
+A custom operating system built from scratch.
+
+- **Kernel**: C/C++ + NASM (x86 32-bit)
+- **GUI** (planned): V8 JavaScript engine + HTML/CSS renderer
+
+## Requirements
+
+- `gcc` (with 32-bit support)
+- `nasm`
+- `grub-mkrescue`, `xorriso`, `mtools`
+- `qemu-system-i386` (for testing)
+
+## Build
 
 ```bash
-bun install
+make        # Build the kernel
+make iso    # Create bootable ISO
+make run    # Run in QEMU
 ```
 
-To run:
+## Project Structure
 
-```bash
-bun run index.ts
 ```
-
-This project was created using `bun init` in bun v1.3.10. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+src/
+  boot/       - Bootloader & assembly stubs (Multiboot, GDT/IDT flush, ISR stubs)
+  kernel/     - Kernel core (GDT, IDT, ISR, memory manager)
+  drivers/    - Hardware drivers (VGA, keyboard)
+  lib/        - Utility libraries (string functions)
+linker.ld     - Linker script
+iso/          - GRUB boot configuration
+```
