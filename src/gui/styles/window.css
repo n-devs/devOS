@@ -1,0 +1,215 @@
+/* devOS - Window Styles */
+
+.os-window {
+  position: absolute;
+  background: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  min-height: 150px;
+  transition: box-shadow 0.15s;
+}
+
+.os-window.focused {
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6);
+  border-color: #444;
+}
+
+.os-window.maximized {
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: calc(100vh - 48px) !important;
+  border-radius: 0;
+}
+
+.os-window.minimized {
+  display: none;
+}
+
+/* Title Bar */
+.window-titlebar {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 12px;
+  background: #2d2d2d;
+  cursor: default;
+  flex-shrink: 0;
+}
+
+.os-window.focused .window-titlebar {
+  background: #323232;
+}
+
+.window-title {
+  flex: 1;
+  font-size: 13px;
+  color: #ccc;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 8px;
+}
+
+.os-window:not(.focused) .window-title {
+  color: #888;
+}
+
+.window-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.window-control-btn {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  opacity: 0.7;
+}
+
+.window-control-btn:hover {
+  opacity: 1;
+}
+
+.window-btn-close {
+  background: #ff5f57;
+}
+
+.window-btn-minimize {
+  background: #ffbd2e;
+}
+
+.window-btn-maximize {
+  background: #28c940;
+}
+
+/* Window Body */
+.window-body {
+  flex: 1;
+  overflow: auto;
+  padding: 12px;
+  color: #ddd;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Resize Handle */
+.window-resize-handle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  cursor: nwse-resize;
+}
+
+/* Start Menu */
+.start-menu {
+  position: fixed;
+  bottom: 56px;
+  left: 8px;
+  width: 320px;
+  background: rgba(30, 30, 30, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid #333;
+  border-radius: 12px;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6);
+  z-index: 60000;
+  display: none;
+  overflow: hidden;
+}
+
+.start-menu.visible {
+  display: block;
+}
+
+.start-menu-header {
+  padding: 20px 16px 12px;
+  border-bottom: 1px solid #333;
+}
+
+.start-menu-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.start-menu-header p {
+  font-size: 12px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.start-menu-apps {
+  padding: 8px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.start-menu-app {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.start-menu-app:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.start-menu-app .menu-app-icon {
+  font-size: 24px;
+  width: 36px;
+  text-align: center;
+}
+
+.start-menu-app .menu-app-info {
+  flex: 1;
+}
+
+.start-menu-app .menu-app-name {
+  font-size: 14px;
+  color: #eee;
+}
+
+.start-menu-app .menu-app-desc {
+  font-size: 11px;
+  color: #888;
+}
+
+.start-menu-footer {
+  padding: 8px;
+  border-top: 1px solid #333;
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.start-menu-footer button {
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  color: #ccc;
+  font-size: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.start-menu-footer button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
