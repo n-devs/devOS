@@ -70,7 +70,7 @@ export class FileSystem {
 
     this.writeFile("/system/config/os.json", JSON.stringify({
       name: "devOS",
-      version: "0.1.0",
+      version: "0.1.1",
       kernel: "devOS-kernel",
       shell: "devOS-shell",
     }, null, 2));
